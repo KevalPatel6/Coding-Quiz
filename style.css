@@ -34,7 +34,14 @@ main {
 
 }
 
-.instructions, .choices {
+.instructions {
     border: solid 2px red;
     padding: 20px;
+}
+ 
+li {
+    max-width: 20%;
+    margin-left: 40%;
+    background-color: blueviolet;
+    color: white;
 }

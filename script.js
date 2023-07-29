@@ -5,6 +5,7 @@ let instructions = document.querySelector(".instructions")
 let startQuizButton = document.querySelector(".startQuiz")
 let timerText = document.querySelector(".timer")
 let timer = 60
+let index = 0
 //Can you set a questionBank variable and have all the questions with their own properties as part of an array?
 init()
 let questionsBank = [{
@@ -35,6 +36,7 @@ function init (){
         instructions.textContent = "";
         
         hideStartButton();
+        showInitialAnswerChoices();
         
 //Setting the time interval to start on click of start//
         setInterval(function(){
@@ -51,6 +53,36 @@ function init (){
 function hideStartButton(){
     startQuizButton.style.display = "none"
 };
+
+
+function showInitialAnswerChoices () {  
+    let answerChoices = document.createElement("ul")
+    let answer1 = document.createElement("li");
+    let answer2 = document.createElement("li");
+    let answer3 = document.createElement("li");
+    let answer4 = document.createElement("li");
+    let choicesDiv = document.querySelector(".choices")
+
+    answerChoices.setAttribute("style", "list-style-type: none");
+
+    answer1.textContent = questionsBank[0].ABCD[0]
+    answer2.textContent = questionsBank[0].ABCD[1]
+    answer3.textContent = questionsBank[0].ABCD[2]
+    answer4.textContent = questionsBank[0].ABCD[3]
+
+    choicesDiv.appendChild(answerChoices);
+    answerChoices.appendChild(answer1);
+    answerChoices.appendChild(answer2);
+    answerChoices.appendChild(answer3);
+    answerChoices.appendChild(answer4);
+
+//Answers need to be in the form of a button
+
+
+
+
+
+}
 
 function answerClick(){
 
