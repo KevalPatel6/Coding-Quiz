@@ -1,0 +1,40 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; 
+    flex-direction: row;
+    border: solid  2px red;
+    padding: 0px 10px 0px;
+}
+
+main {
+    margin-top: 65px;
+}
+
+.questionContainer {
+    text-align: center;
+}
+
+.instructions {
+    text-align: center;
+    margin-top: 32px;
+}
+
+.startQuiz {
+    margin-top: 20px;
+    border-radius: 5px;
+    color: white;
+    background-color: purple;
+    padding: 5px;
+
+}
+
+.instructions, .choices {
+    border: solid 2px red;
+    padding: 20px;
+}
