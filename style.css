@@ -1,3 +1,9 @@
+
+:root {
+    --backgroundColor: purple;
+    --textColor: white;
+};
+
 *{
     margin: 0px;
     padding: 0px;
@@ -25,13 +31,13 @@ main {
     margin-top: 32px;
 }
 
-.startQuiz {
+button {
     margin-top: 20px;
     border-radius: 5px;
-    color: white;
-    background-color: purple;
+    color: var(--textColor);
+    background-color: var(--backgroundColor);
     padding: 5px;
-
+    
 }
 
 .instructions {
@@ -39,9 +45,15 @@ main {
     padding: 20px;
 }
  
-li {
-    max-width: 20%;
-    margin-left: 40%;
-    background-color: blueviolet;
-    color: white;
+
+ul {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    
+}
+
+.buttonContainer{
+    text-align: center;
 }

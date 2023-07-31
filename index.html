@@ -24,12 +24,17 @@
             
             <div class = "questionContainer">
                 
-                <h1 class = "questionHeader"></h1>  
+                <h1 class = "questionHeader" id = "questionHeader"></h1>  
                 <h3 class = "instructions"></h3>
                 <div class = "choices"></div> 
+            </div>
+
+            <div class = "rightWrongContainer">
+            </div>
+
 
             <div class = "buttonContainer" data-state="visible">
-                <button class = "startQuiz" id = "startQuzi">Start Quiz</button>
+                <button class = "startQuiz" id = "startQuiz">Start Quiz</button>
             </div>
                 
             <h4 class = "wrongOrRight"></h4>
@@ -40,17 +45,17 @@
             
             <h1 id = "allDoneHeader"></h1>            
             
-            <input class = "initials"></input>
+            <input class = "initials" hidden></input>
         
-            <button class = "submit" ></button>
+            <button class = "submit" hidden></button>
         
         <div>
             <h1 class = "viewScoresTitle"></h1>
 
             <ol class = "highscoresList"></ol>
 
-            <button class = "decrementButton"></button>
-            <button class = "incrementButton"></button>
+            <button class = "decrementButton" hidden></button>
+            <button class = "incrementButton" hidden></button>
         </div>
             
     </main>
