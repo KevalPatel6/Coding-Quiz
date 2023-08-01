@@ -104,3 +104,18 @@ ul {
     text-align: center;
     align-items: center;
 }
+
+
+/* ----------------------------------------------------------- */
+/* highScores CSS starts below */
+/* ------------------------------------------------------------ */
+
+h1, h2 {
+    text-align: center;
+}
+
+.highScoresList {
+    display: flex;
+    flex-direction: row;
+}
+
