@@ -26,6 +26,12 @@ main {
     text-align: center;
 }
 
+.answerChoicesContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .instructions {
     text-align: center;
     margin-top: 32px;
@@ -55,5 +61,9 @@ ul {
 }
 
 .buttonContainer{
+    text-align: center;
+}
+
+.rightWrongContainer{
     text-align: center;
 }
