@@ -5,50 +5,39 @@ let instructions = document.querySelector(".instructions")
 let startQuizButton = document.querySelector(".startQuiz")
 let timerText = document.querySelector(".timer")
 let timer = 60
-let index = 0
+let currentQuestion = 0
 let answersEl = document.querySelectorAll("button");
 let rightWrongEl = document.querySelector(".rightWrongContainer");
+let answer1Button = document.querySelector("#answer1");
+let answer2Button = document.querySelector("#answer2");
+let answer3Button = document.querySelector("#answer3");
+let answer4Button = document.querySelector("#answer4");
 let questionsBank = [{
 
-    question: "Test: What is 1+1",
-    ABCD: [1,2,3,4],
-        answer: 2,
+    question: "Who is the greatest of all time?",
+    choices: ['Lebron James', 'Michael Jordan', 'Kobe Bryant', 'Tim Duncan'],
+    answer: 'Lebron James'
     },
     
     {
-        question: "Test: What is 3*3",
-        ABCD: [3,6,8,9],
-        answer: 9,
+        question: "What sport do the Philadelphia Eagles play?",
+        choices: ['Football', 'Basketball', 'Baseball', 'Hockey'],
+        answer: 'Football'
     
     }]
-//Can you set a questionBank variable and have all the questions with their own properties as part of an array?
-
 
 
 init()
 
 startQuizButton.addEventListener("click", function(){
-    questionDisplay.textContent = questionsBank[index].question;
+    questionDisplay.textContent = questionsBank[currentQuestion].question;
     instructions.textContent = "";
     
     hideStartButton();
     
-    createAnswerChoiceList();
-
-    if (questionDisplay.textContent = questionsBank[index].question)
-
-    choiceList.addEventListener("click", function(){
-        if (event.target.matches("button" === true))
-   {
-        index++ 
-        questionDisplay.textContent = questionsBank[index].question
-       
-    }
-
+    renderQuestion();        
         
-        
-    })
-});
+    });
 
 
 
@@ -106,47 +95,14 @@ function hideStartButton(){
 };
 
 
-function createAnswerChoiceList () {  
-    let answerChoices = document.createElement("ul")
-    let answer1Line = document.createElement("li");
-    let answer2Line = document.createElement("li");
-    let answer3Line = document.createElement("li");
-    let answer4Line = document.createElement("li");
-    let choicesList = document.querySelector(".choices")
+function renderQuestion () {  
+    questionDisplay = questionsBank[currentQuestion].question
+    answer1Button.textContent = questionsBank[currentQuestion].choices[0]
+    answer2Button.textContent = questionsBank[currentQuestion].choices[1]
+    answer3Button.textContent = questionsBank[currentQuestion].choices[2]
+    answer4Button.textContent = questionsBank[currentQuestion].choices[3]
 
-    let answer1 = document.createElement("button")
-    let answer2 = document.createElement("button")
-    let answer3 = document.createElement("button")
-    let answer4 = document.createElement("button")
 
-    //NOTE to self - set value first before appending child.
-
-    answer1.textContent = questionsBank[0].ABCD[0];
-    answer2.textContent = questionsBank[0].ABCD[1];
-    answer3.textContent = questionsBank[0].ABCD[2];
-    answer4.textContent = questionsBank[0].ABCD[3];
-
-    choiceList.appendChild(answerChoices);
-    answerChoices.appendChild(answer1Line);
-    answerChoices.appendChild(answer2Line);
-    answerChoices.appendChild(answer3Line);
-    answerChoices.appendChild(answer4Line);
-
-    answer1Line.appendChild(answer1);
-    answer2Line.appendChild(answer2);
-    answer3Line.appendChild(answer3);
-    answer4Line.appendChild(answer4);
-    
-    answerChoices.setAttribute("style", "list-style-type: none");
-//Not working here????
-    document.querySelectorAll("button").style.backgroundColor = "blue";
-//--
-
-    choiceList.appendChild(answerChoices);
-    answerChoices.appendChild(answer1);
-    answerChoices.appendChild(answer2);
-    answerChoices.appendChild(answer3);
-    answerChoices.appendChild(answer4);
 
 //Answers need to be in the form of a button
 }
