@@ -27,15 +27,18 @@
                 <h1 class = "questionHeader" id = "questionHeader"></h1>  
                 <h3 class = "instructions"></h3>
                 <div class = "answerChoicesContainer">
-                    <button id="answer1"></button>
-                    <button id="answer2"></button>
-                    <button id="answer3"></button>
-                    <button id="answer4"></button>
+                    <ul>
+
+                        <button id="answer1"></button>
+                        <button id="answer2"></button>
+                        <button id="answer3"></button>
+                        <button id="answer4"></button>
+                    </ul>
                 </div> 
             </div>
 
             <div class = "rightWrongContainer">
-                <h4 id="rightOrWrong">awef</h3>
+                <h4 id="rightOrWrong"></h4>
             </div>
 
 
@@ -46,15 +49,19 @@
           
         </div>
         
-        <div class = "gameOverScreen">
+        <div class = "gameOverScreen" >
             
             
-            <h1 id = "allDoneHeader"></h1>            
-            
-            <input class = "initials" hidden></input>
-        
-            <button class = "submit" hidden></button>
-        
+            <h1 id = "gameOverHeader"></h1>            
+           <h2 id = 'score'></h2>
+            <div id = "formContainer" hidden>
+                <form id = "form" >Enter Your Initials
+                    <input type="text"></input>                    
+                    <button id = "submit" ></button>
+                </form>
+            </div>
+        </div>
+
         <div>
             <h1 class = "viewScoresTitle"></h1>
 
