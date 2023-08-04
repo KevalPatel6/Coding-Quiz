@@ -7,7 +7,8 @@ let startQuizButton = document.querySelector(".startQuiz")
 let timerText = document.querySelector(".timer")
 let timer = 60
 let answersEl = document.querySelectorAll("button");
-let inputInitials = document.getElementById("inputInitials")
+let inputInitials = document.getElementById("inputInitials");
+
 let rightWrong = document.querySelector("#rightOrWrong");
 let answer1Button = document.querySelector("#answer1");
 let answer2Button = document.querySelector("#answer2");
@@ -16,7 +17,7 @@ let answer4Button = document.querySelector("#answer4");
 let submitButton = document.querySelector("#submit");
 let scoresList = document.querySelector(".highScoreList");
 let score = 0;
-let highScoresArray = localStorage.getItem("highscores") || []
+let highScoresArray = JSON.parse(localStorage.getItem("highscores")) || []
 let currentQuestion = 0;
 let questionsBank = [{
 
@@ -69,7 +70,7 @@ function init() {
             timer--
             timerText.textContent = "Time: " + timer + " seconds"
             
-            if(timer===0 || currentQuestion === questionsBank.length-1){
+            if(timer===0){
                 gameOver(); 
                 clearInterval(timerID)
             }
@@ -115,10 +116,20 @@ choiceListContainer.addEventListener("click", function (event) {
         rightWrong.textContent = "Wrong!";
         timer -= 5;
     }
+
+    setTimeout(function() {
+        rightWrong.textContent = ""
+    }, 3000)
     
     if (event.target.matches("button")) {
         currentQuestion++
-        renderQuestion();
+
+
+            if(currentQuestion === questionsBank.length-1) {
+                gameOver();
+            } else {
+                renderQuestion();
+            }
     }
 
 
@@ -144,14 +155,18 @@ function gameOver() {
 //Event listener for submit button//
     submitButton.addEventListener("click", function saveToStorage(event){
         event.preventDefault();
-        highScoresArray.push({"initials":inputInitials,"score":score})
+        // const dataToSave = {
+        //     intials: inputInitials.value,
+        //     score: score
+        // }
+        highScoresArray.push({"initials":inputInitials.value,"score":score})
         //adds input value to local storage but the input value is not working for some reason//
        
-        localStorage.setItem("initials", JSON.stringify(highScoresArray))
+        localStorage.setItem("highscores", JSON.stringify(highScoresArray))
         
         window.location.replace("highscores.html");//<<should take you to the highscore page, not working unless I put it at the top because of broken code here//
         
-        createHighScoreList();
+        // createHighScoreList();
         
        
     } )};
